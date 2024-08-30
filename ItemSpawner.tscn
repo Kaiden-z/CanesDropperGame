@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi1cdrmatwvyg"]
+
+[ext_resource type="Script" path="res://ItemSpawner.cs" id="1_ck8p2"]
+[ext_resource type="Texture2D" uid="uid://b06kch8kiim1f" path="res://images/Red Dot.png" id="1_skeb2"]
+[ext_resource type="PackedScene" uid="uid://x8vckph6ybny" path="res://items/ItemBase.tscn" id="2_4kiqw"]
+
+[node name="ItemSpawner" type="Node2D"]
+script = ExtResource("1_ck8p2")
+itemBase = ExtResource("2_4kiqw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_skeb2")
