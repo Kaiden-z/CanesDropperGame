@@ -10,16 +10,12 @@ public partial class ItemSpawner : Node2D
 	[Export]
 	public PackedScene itemBase;
 	private Random rng = new Random();
-
-	List<PackedScene> ItemList = new List<PackedScene>();
+	private List<PackedScene> ItemList = new List<PackedScene>();
 	
 	public override void _Ready()
 	{
 		ItemList = GetItemListFromDir("res://items/itemRBs/");
-		GD.Print(ItemList.Count);
-		for (int i = 0; i < ItemList.Count; i++) {
-			GD.Print(ItemList[i]);
-		}
+		GD.Print("Item list size: " + ItemList.Count);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,22 +23,20 @@ public partial class ItemSpawner : Node2D
 	{
 	}
 
+	// Spawn a randomly chosen item from item list
 	public void SpawnItem()
 	{
 		GD.Print("Spawning item...");
 
-		int i = rng.Next(0, ItemList.Count - 1);
-		RigidBody2D newItemRB = ItemList[i].Instantiate<RigidBody2D>();
-		ItemBase newItem = itemBase.Instantiate<ItemBase>().WithItem(newItemRB);
+		int i = rng.Next(0, ItemList.Count);
+		RigidBody2D newItem = ItemList[i].Instantiate<RigidBody2D>();
 		GetTree().Root.AddChild(newItem);
-
-		GD.Print(this.Position);
-
 		newItem.GlobalPosition = this.GlobalPosition;
 		
 		GD.Print("Done spawning");
 	}
 
+	// Get list of items to spawn from directory path
 	private List<PackedScene> GetItemListFromDir(string path) {
 
 		List<PackedScene> scenes = new List<PackedScene>();

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bi1cdrmatwvyg" path="res://ItemSpawner.tscn" id="3_bm7w8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qappv"]
+size = Vector2(70, 50)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("itemSpawner", "collisionShape2D")]
 script = ExtResource("1_u384i")
@@ -13,11 +14,12 @@ collisionShape2D = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
+position = Vector2(0.035, 0)
 shape = SubResource("RectangleShape2D_qappv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(57, -10)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_q76ic")
 
 [node name="ItemSpawner" parent="." instance=ExtResource("3_bm7w8")]
-position = Vector2(0, 45)

@@ -30,6 +30,7 @@ public partial class Player : CharacterBody2D
         }
 
         Position = position;
+		MoveAndSlide();
 	}
 
 	private void CheckDropInput() {

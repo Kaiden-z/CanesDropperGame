@@ -1,26 +1,23 @@
 using Godot;
 using System;
 
-public partial class ItemBase : Node2D
+public partial class ItemBase : RigidBody2D
 {
-	public RigidBody2D body;
 	public override void _Ready()
 	{
-		GetChild<Sprite2D>(0).Hide();
+
 	}
 
 	public override void _Process(double delta)
 	{
-		if (body.Position.Y > GetWindow().Size.Y + 100) {
+		CheckOutOfBounds();
+	}
+
+	// Delete item if out fallen out of view
+	private void CheckOutOfBounds() {
+		if (Position.Y > GetWindow().Size.Y + 100) {
 			GD.Print("Item fell out of bounds. Destroying this object...");
 			QueueFree();
 		}
-	}
-
-	public ItemBase WithItem(RigidBody2D itemRB) {
-		body = itemRB;
-		AddChild(body);
-
-		return this;
 	}
 }
