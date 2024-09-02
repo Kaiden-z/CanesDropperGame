@@ -1,14 +1,19 @@
+using System;
 using Godot;
 using Godot.Collections;
 
 public partial class ItemBase : RigidBody2D
 {
 	[Export]
+	public PackedScene NextItem;
+	[Export]
 	public int ItemID;
 	private bool Matched = false;
 	public override void _Ready()
 	{
 		ContactMonitor = true;
+		MaxContactsReported = 20;
+		GD.Print(NextItem);
 	}
 
 	public override void _Process(double delta)
@@ -30,13 +35,19 @@ public partial class ItemBase : RigidBody2D
 		Checks if collision is detected between two items of
 		the same id. Spawn next item of next level if match found.
 	*/
-	private void _on_body_entered(Node body) {
+	private void OnBodyEntered(Node body) {
+		GD.Print("Collision detected");
 		ItemBase colliding_item = body as ItemBase;
-			if (colliding_item != null && !colliding_item.Matched) {
-				Matched = true;
-				colliding_item.Matched = true;
-				Vector2 avg_pos = (Position + colliding_item.Position) / 2;
-				
-			}
+
+		if (colliding_item != null && !Matched && !colliding_item.Matched &&
+			colliding_item.ItemID == ItemID && NextItem != null) {
+			RigidBody2D newItem = NextItem.Instantiate<RigidBody2D>();
+			GetTree().Root.AddChild(newItem);
+			newItem.Position = (Position + colliding_item.Position) / 2;
+			Matched = true;
+			colliding_item.Matched = true;
+			colliding_item.QueueFree();
+			QueueFree();
+		}
 	}
 }

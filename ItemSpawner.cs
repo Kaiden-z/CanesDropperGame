@@ -29,7 +29,7 @@ public partial class ItemSpawner : Node2D
 		GD.Print("Spawning item...");
 
 		int i = rng.Next(0, ItemList.Count);
-		RigidBody2D newItem = ItemList[i].Instantiate<RigidBody2D>();
+		RigidBody2D newItem = ItemList[1].Instantiate<RigidBody2D>();
 		GetTree().Root.AddChild(newItem);
 		newItem.GlobalPosition = this.GlobalPosition;
 		
