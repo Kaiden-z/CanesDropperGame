@@ -20,16 +20,16 @@ public partial class Player : CharacterBody2D
 
 		Vector2 position = Position;
 
-        if (Input.IsActionPressed("left"))
-        {
-            position.X -= Speed * (float) delta;
-        }
-        else if (Input.IsActionPressed("right"))
-        {
-            position.X += Speed * (float) delta;
-        }
+		if (Input.IsActionPressed("left"))
+		{
+			position.X -= Speed * (float) delta;
+		}
+		else if (Input.IsActionPressed("right"))
+		{
+			position.X += Speed * (float) delta;
+		}
 
-        Position = position;
+		Position = position;
 		MoveAndSlide();
 	}
 
