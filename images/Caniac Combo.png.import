@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmm3pib8aj6dy"
-path="res://.godot/imported/Bread.png-6ff53f5edc49c3a0b1ae94644fceae39.ctex"
+uid="uid://cfjsp3vs7o1yw"
+path="res://.godot/imported/Caniac Combo.png-a136d9320d36efe85f6b2ad1345db5cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Bread.png"
-dest_files=["res://.godot/imported/Bread.png-6ff53f5edc49c3a0b1ae94644fceae39.ctex"]
+source_file="res://images/Caniac Combo.png"
+dest_files=["res://.godot/imported/Caniac Combo.png-a136d9320d36efe85f6b2ad1345db5cd.ctex"]
 
 [params]
 

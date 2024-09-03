@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh4eg8u5wovgk"]
+
+[ext_resource type="Script" path="res://items/ItemBase.cs" id="1_bsnvd"]
+[ext_resource type="Texture2D" uid="uid://c2ki3tu6mh2ui" path="res://images/Chicken Strip.png" id="2_6b2b4"]
+[ext_resource type="PackedScene" uid="uid://c4vvuvkpojhk1" path="res://items/itemRBs/Toast.tscn" id="2_m3iio"]
+
+[node name="ChickenStrip" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_bsnvd")
+NextItem = ExtResource("2_m3iio")
+ItemID = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("2_6b2b4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.155, 0.155)
+polygon = PackedVector2Array(-300, -38.4615, -176.923, -69.2308, -69.2308, -92.3077, 46.1538, -100, 153.846, -130.769, 269.231, -153.846, 315.385, -146.154, 284.615, -84.6154, 230.769, -7.69231, 200, 53.8462, 100, 100, 30.7692, 107.692, -61.5385, 123.077, -153.846, 107.692, -184.615, 84.6154, -276.923, 107.692, -315.385, 53.8462, -323.077, -7.69231)
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

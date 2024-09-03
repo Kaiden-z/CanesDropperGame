@@ -36,7 +36,7 @@ public partial class Player : CharacterBody2D
 	private void CheckDropInput() {
 		if (Input.IsActionJustPressed("drop")) {
 			GD.Print("Drop pressed");
-			itemSpawner.SpawnItem();
+			itemSpawner.DropItem();
 		}
 	}
 

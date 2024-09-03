@@ -10,12 +10,16 @@ public partial class ItemSpawner : Node2D
 	[Export]
 	public PackedScene itemBase;
 	private Random rng = new Random();
+    private bool canDrop = true;
 	private List<PackedScene> ItemList = new List<PackedScene>();
+    private const float spawnCooldown = 0.5f;
+    private ItemBase HeldItem;
 	
 	public override void _Ready()
 	{
 		ItemList = GetItemListFromDir("res://items/itemRBs/");
 		GD.Print("Item list size: " + ItemList.Count);
+        SpawnItem();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,21 +27,54 @@ public partial class ItemSpawner : Node2D
 	{
 	}
 
-	// Spawn a randomly chosen item from item list
+	/*
+        Spawn a randomly chosen item from item list
+    */
 	public void SpawnItem()
 	{
-		GD.Print("Spawning item...");
+        GD.Print("Spawning item...");
 
-		int i = rng.Next(0, ItemList.Count);
-		RigidBody2D newItem = ItemList[1].Instantiate<RigidBody2D>();
-		GetTree().Root.AddChild(newItem);
-		newItem.GlobalPosition = this.GlobalPosition;
-		
-		GD.Print("Done spawning");
+        int i = rng.Next(0, ItemList.Count);
+        HeldItem = ItemList[3].Instantiate<ItemBase>();
+        AddChild(HeldItem);
+        HeldItem.GlobalPosition = GlobalPosition;
+        HeldItem.DisableMode = CollisionObject2D.DisableModeEnum.MakeStatic;
+        HeldItem.ProcessMode = ProcessModeEnum.Disabled;
+        
+        GD.Print("Done spawning");
+        
 	}
 
-	// Get list of items to spawn from directory path
-	private List<PackedScene> GetItemListFromDir(string path) {
+    /*
+        Release item and re-enable physics simulation
+    */
+    public void DropItem()
+    {
+        if (canDrop) {
+            canDrop = false;
+            RemoveChild(HeldItem);
+            GetTree().Root.AddChild(HeldItem);
+            HeldItem.ProcessMode = ProcessModeEnum.Always;
+            HeldItem.GlobalPosition = GlobalPosition;
+            GetTree().CreateTimer(spawnCooldown).Timeout += OnTimerOut;
+        }
+        
+    }
+
+    /*
+        Spawn a new item after drop cooldown timer has completed
+    */
+    private void OnTimerOut() 
+    {
+        SpawnItem();
+        canDrop = true;
+    }
+
+	/*
+        Get list of items to spawn from directory path
+    */
+	private List<PackedScene> GetItemListFromDir(string path) 
+    {
 
 		List<PackedScene> scenes = new List<PackedScene>();
         DirAccess directory = DirAccess.Open(path);

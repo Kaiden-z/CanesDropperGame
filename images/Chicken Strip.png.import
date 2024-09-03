@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpj3se4q2o8e"
-path="res://.godot/imported/muffin.png-4c7db79a7b82b5058c51605b65a99d20.ctex"
+uid="uid://c2ki3tu6mh2ui"
+path="res://.godot/imported/Chicken Strip.png-4096bb1d8c4d61af6c1e56340b734ae6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/muffin.png"
-dest_files=["res://.godot/imported/muffin.png-4c7db79a7b82b5058c51605b65a99d20.ctex"]
+source_file="res://images/Chicken Strip.png"
+dest_files=["res://.godot/imported/Chicken Strip.png-4096bb1d8c4d61af6c1e56340b734ae6.ctex"]
 
 [params]
 

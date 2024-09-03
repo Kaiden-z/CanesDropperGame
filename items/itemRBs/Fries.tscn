@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtlxqi5fnfr5e"]
+
+[ext_resource type="Texture2D" uid="uid://d1cm0bonpyqye" path="res://images/Fries.png" id="1_j6x50"]
+[ext_resource type="Script" path="res://items/ItemBase.cs" id="1_juei3"]
+[ext_resource type="PackedScene" uid="uid://1c8bf5ejh6rn" path="res://items/itemRBs/BoxCombo.tscn" id="2_itcfe"]
+
+[node name="Fries" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_juei3")
+NextItem = ExtResource("2_itcfe")
+ItemID = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_j6x50")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-18, -31, -14, -41, -11, -34, -11, -32, -6, -32, -4, -30, 4, -34, 5, -38, 9, -32, 12, -31, 20, -27, 19, -35, 22, -36, 25, -31, 26, -35, 34, -25, 36, -23, 48, -25, 48, -23, 44, -20, 65, -6, 68, -6, 67, -16, 72, -15, 73, -6, 84, -2, 81, 0, 87, 6, 85, 11, 85, 22, 81, 15, 72, 19, 77, 25, 75, 29, 68, 30, 59, 24, 59, 29, 55, 26, 34, 35, 30, 28, 1, 35, 1, 30, -6, 24, -18, 32, -20, 23, -36, 31, -39, 26, -43, 29, -53, 26, -62, 23, -66, 27, -69, 25, -65, 22, -79, 19, -81, 13, -63, 19, -61, 16, -75, 9, -74, 5, -86, 4, -84, 2, -65, 1, -51, -10, -59, -11, -59, -15, -39, -16, -37, -19, -41, -21, -36, -24, -37, -27, -29, -24, -19, -28)
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

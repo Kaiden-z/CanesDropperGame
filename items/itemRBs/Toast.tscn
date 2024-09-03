@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4vvuvkpojhk1"]
+
+[ext_resource type="Texture2D" uid="uid://vqaa4q0ytp5l" path="res://images/Toast.png" id="1_d032u"]
+[ext_resource type="Script" path="res://items/ItemBase.cs" id="1_kth5h"]
+[ext_resource type="PackedScene" uid="uid://dtlxqi5fnfr5e" path="res://items/itemRBs/Fries.tscn" id="2_potv1"]
+
+[node name="Toast" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_kth5h")
+NextItem = ExtResource("2_potv1")
+ItemID = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("1_d032u")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.1, 1.1)
+polygon = PackedVector2Array(-10, -27, 3, -26, 8, -23, 20, -24, 29, -23, 43, -16, 47, -9, 43, 0, 48, 5, 48, 10, 41, 21, 35, 26, 20, 27, -7, 26, -22, 23, -23, 26, -33, 26, -42, 18, -45, 9, -37, 2, -44, -4, -42, -15, -37, -20, -23, -24)
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
