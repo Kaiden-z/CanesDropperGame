@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://dh4eg8u5wovgk"]
 
-[ext_resource type="Script" path="res://items/ItemBase.cs" id="1_bsnvd"]
-[ext_resource type="Texture2D" uid="uid://c2ki3tu6mh2ui" path="res://images/Chicken Strip.png" id="2_6b2b4"]
-[ext_resource type="PackedScene" uid="uid://c4vvuvkpojhk1" path="res://items/itemRBs/Toast.tscn" id="2_m3iio"]
+[ext_resource type="Script" path="res://items/ItemBase.cs" id="1_ynsvb"]
+[ext_resource type="PackedScene" uid="uid://c4vvuvkpojhk1" path="res://items/itemRBs/Toast.tscn" id="2_522sg"]
+[ext_resource type="Texture2D" uid="uid://c2ki3tu6mh2ui" path="res://images/Chicken Strip.png" id="3_14niw"]
 
 [node name="ChickenStrip" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_bsnvd")
-NextItem = ExtResource("2_m3iio")
+script = ExtResource("1_ynsvb")
+NextItem = ExtResource("2_522sg")
 ItemID = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.24, 0.24)
-texture = ExtResource("2_6b2b4")
+texture = ExtResource("3_14niw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 scale = Vector2(0.155, 0.155)

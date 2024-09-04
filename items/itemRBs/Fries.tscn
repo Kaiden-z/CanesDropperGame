@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://d1cm0bonpyqye" path="res://images/Fries.png" id="1_j6x50"]
 [ext_resource type="Script" path="res://items/ItemBase.cs" id="1_juei3"]
-[ext_resource type="PackedScene" uid="uid://1c8bf5ejh6rn" path="res://items/itemRBs/BoxCombo.tscn" id="2_itcfe"]
+[ext_resource type="PackedScene" uid="uid://buqg5il53uwl7" path="res://items/itemRBs/Drink.tscn" id="2_jrbqh"]
 
 [node name="Fries" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_juei3")
-NextItem = ExtResource("2_itcfe")
+NextItem = ExtResource("2_jrbqh")
 ItemID = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

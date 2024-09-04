@@ -12,12 +12,14 @@ public partial class ItemSpawner : Node2D
 	private Random rng = new Random();
     private bool canDrop = true;
 	private List<PackedScene> ItemList = new List<PackedScene>();
-    private const float spawnCooldown = 0.5f;
     private ItemBase HeldItem;
+    private const float spawnCooldown = 0.5f;
+    private const string spawnPoolPath = "res://items/itemRBs/spawnPool/";
+    
 	
 	public override void _Ready()
 	{
-		ItemList = GetItemListFromDir("res://items/itemRBs/");
+		ItemList = GetItemListFromDir(spawnPoolPath);
 		GD.Print("Item list size: " + ItemList.Count);
         SpawnItem();
 	}
@@ -35,7 +37,7 @@ public partial class ItemSpawner : Node2D
         GD.Print("Spawning item...");
 
         int i = rng.Next(0, ItemList.Count);
-        HeldItem = ItemList[3].Instantiate<ItemBase>();
+        HeldItem = ItemList[i].Instantiate<ItemBase>();
         AddChild(HeldItem);
         HeldItem.GlobalPosition = GlobalPosition;
         HeldItem.DisableMode = CollisionObject2D.DisableModeEnum.MakeStatic;

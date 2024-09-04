@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmm3pib8aj6dy"
-path="res://.godot/imported/bread.png-4b7562618e6ea45c3b314c8b172bbf13.ctex"
+uid="uid://jmcbugwedhws"
+path="res://.godot/imported/CanesBG.jpg-920495a1c54bea4d9216e7adcdf4b8ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/bread.png"
-dest_files=["res://.godot/imported/bread.png-4b7562618e6ea45c3b314c8b172bbf13.ctex"]
+source_file="res://images/CanesBG.jpg"
+dest_files=["res://.godot/imported/CanesBG.jpg-920495a1c54bea4d9216e7adcdf4b8ec.ctex"]
 
 [params]
 

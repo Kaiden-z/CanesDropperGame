@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://buqg5il53uwl7"]
+
+[ext_resource type="Script" path="res://items/ItemBase.cs" id="1_uf8oe"]
+[ext_resource type="PackedScene" uid="uid://1c8bf5ejh6rn" path="res://items/itemRBs/BoxCombo.tscn" id="2_lpcw3"]
+[ext_resource type="Texture2D" uid="uid://ck4ctackpf8kq" path="res://images/Drink.png" id="3_7xbuk"]
+
+[node name="Drink" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_uf8oe")
+NextItem = ExtResource("2_lpcw3")
+ItemID = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_7xbuk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 0.0038551
+polygon = PackedVector2Array(-38.2811, -72.853, -25.3005, -77.9031, -7.31221, -80.9724, 12.6915, -80.0495, 31.7068, -76.1228, 38.726, -71.1498, 36.7453, -66.1422, 32.9034, -25.127, 27.1887, 48.8956, 25.2504, 64.9032, 21.2697, 69.9185, 9.28521, 73.9648, -6.71467, 74.0264, -21.7261, 71.0843, -27.7531, 64.1075, -30.8841, 30.1193, -33.0383, -9.87271, -36.2041, -52.8608)
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

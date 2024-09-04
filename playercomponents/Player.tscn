@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://lkefirb80ttj"]
 
-[ext_resource type="Texture2D" uid="uid://buwa7uccvf766" path="res://images/icon.svg" id="1_q76ic"]
 [ext_resource type="Script" path="res://playercomponents/Player.cs" id="1_u384i"]
+[ext_resource type="Texture2D" uid="uid://dl6cl7fx40nrt" path="res://images/The Dog.png" id="2_x5jq8"]
 [ext_resource type="PackedScene" uid="uid://bi1cdrmatwvyg" path="res://playercomponents/ItemSpawner.tscn" id="3_bm7w8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qappv"]
@@ -18,8 +18,8 @@ position = Vector2(0.035, 0)
 shape = SubResource("RectangleShape2D_qappv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(57, -10)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("1_q76ic")
+position = Vector2(38, -8)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_x5jq8")
 
 [node name="ItemSpawner" parent="." instance=ExtResource("3_bm7w8")]
