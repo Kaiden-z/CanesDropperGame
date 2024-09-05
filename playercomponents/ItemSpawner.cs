@@ -13,13 +13,13 @@ public partial class ItemSpawner : Node2D
     private bool canDrop = true;
 	private List<PackedScene> ItemList = new List<PackedScene>();
     private ItemBase HeldItem;
-    private const float spawnCooldown = 0.5f;
-    private const string spawnPoolPath = "res://items/itemRBs/spawnPool/";
+    private const float SpawnCooldown = 0.5f;
+    private const string SpawnPoolPath = "res://items/itemRBs/spawnPool/";
     
 	
 	public override void _Ready()
 	{
-		ItemList = GetItemListFromDir(spawnPoolPath);
+		ItemList = GetItemListFromDir(SpawnPoolPath);
 		GD.Print("Item list size: " + ItemList.Count);
         SpawnItem();
 	}
@@ -62,7 +62,8 @@ public partial class ItemSpawner : Node2D
             HeldItem.GlobalPosition = GlobalPosition;
             HeldItem.SetCollisionLayerValue(2, true);
             HeldItem.SetCollisionMaskValue(2, true);
-            GetTree().CreateTimer(spawnCooldown).Timeout += OnTimerOut;
+            GameManager.Instance.AddScore(10 + (HeldItem.ItemID * 10));
+            GetTree().CreateTimer(SpawnCooldown).Timeout += OnTimerOut;
         }
         
     }

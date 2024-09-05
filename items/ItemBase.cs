@@ -9,10 +9,13 @@ public partial class ItemBase : RigidBody2D
 	[Export]
 	public int ItemID;
 	private bool Matched = false;
+	private int ScoreValue;
 	public override void _Ready()
 	{
 		ContactMonitor = true;
 		MaxContactsReported = 20;
+		ScoreValue = 100 + (ItemID * 150);
+
 		SetCollisionLayerValue(1, false);
 		SetCollisionLayerValue(1, false);
 		SetCollisionLayerValue(2, true);
@@ -54,6 +57,8 @@ public partial class ItemBase : RigidBody2D
 			RigidBody2D newItem = NextItem.Instantiate<RigidBody2D>();
 			GetTree().Root.CallDeferred("add_child", newItem);
 			newItem.Position = (Position + collidingItem.Position) / 2;
+			GameManager.Instance.AddScore(ScoreValue);
+
 			collidingItem.QueueFree();
 			QueueFree();
 		}
