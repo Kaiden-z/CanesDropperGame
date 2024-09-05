@@ -42,6 +42,8 @@ public partial class ItemSpawner : Node2D
         HeldItem.GlobalPosition = GlobalPosition;
         HeldItem.DisableMode = CollisionObject2D.DisableModeEnum.MakeStatic;
         HeldItem.ProcessMode = ProcessModeEnum.Disabled;
+        HeldItem.SetCollisionLayerValue(2, false);
+        HeldItem.SetCollisionMaskValue(2, false);
         
         GD.Print("Done spawning");
         
@@ -58,6 +60,8 @@ public partial class ItemSpawner : Node2D
             GetTree().Root.AddChild(HeldItem);
             HeldItem.ProcessMode = ProcessModeEnum.Always;
             HeldItem.GlobalPosition = GlobalPosition;
+            HeldItem.SetCollisionLayerValue(2, true);
+            HeldItem.SetCollisionMaskValue(2, true);
             GetTree().CreateTimer(spawnCooldown).Timeout += OnTimerOut;
         }
         

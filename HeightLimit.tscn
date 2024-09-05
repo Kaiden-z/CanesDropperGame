@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://br6fwtyuo4fqd"]
+
+[ext_resource type="Texture2D" uid="uid://bcqwecgfph7w" path="res://images/Dashed Line.png" id="1_2qy61"]
+[ext_resource type="Script" path="res://HeightLimit.cs" id="1_xe66b"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_08j5k"]
+a = Vector2(-210, 0)
+b = Vector2(210, 0)
+
+[node name="HeightLimit" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_xe66b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_2qy61")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_08j5k")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

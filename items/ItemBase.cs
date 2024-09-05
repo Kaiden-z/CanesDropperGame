@@ -13,6 +13,10 @@ public partial class ItemBase : RigidBody2D
 	{
 		ContactMonitor = true;
 		MaxContactsReported = 20;
+		SetCollisionLayerValue(1, false);
+		SetCollisionLayerValue(1, false);
+		SetCollisionLayerValue(2, true);
+		SetCollisionMaskValue(2, true);
 	}
 
 	public override void _Process(double delta)
@@ -53,5 +57,7 @@ public partial class ItemBase : RigidBody2D
 			collidingItem.QueueFree();
 			QueueFree();
 		}
+
+		SetCollisionLayerValue(3, true);
 	}
 }
